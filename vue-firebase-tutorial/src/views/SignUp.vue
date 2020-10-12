@@ -1,8 +1,12 @@
 <template>
   <div class="sign-up">
-    <p>Let's create a new account !</p>
-    <input type="text" v-model="email" placeholder="Email"><br>
-    <input type="password" v-model="password" placeholder="Password"><br>
+    <p>Let's create a new account</p>
+    <label>
+      <input type="text" v-model="email" placeholder="Email">
+    </label><br>
+    <label>
+      <input type="password" v-model="password" placeholder="Password">
+    </label><br>
     <button @click="signUp">Sign Up</button>
     <span>or go back to <router-link to="/login">login</router-link> if you already have an account.</span>
   </div>
