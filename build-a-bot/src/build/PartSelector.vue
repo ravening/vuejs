@@ -24,9 +24,9 @@ export default {
     parts: {
       type: Array,
       required: true,
-      validator(value) {
-        return ['left', 'right', 'top', 'bottom', 'center'].includes(value);
-      },
+      // validator(value) {
+      //   return ['left', 'right', 'top', 'bottom', 'center'].includes(value);
+      // },
     },
     position: {
       type: String,
