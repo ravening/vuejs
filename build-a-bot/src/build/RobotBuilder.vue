@@ -63,7 +63,7 @@ export default {
   name: 'RobotBuilder',
   components: { PartSelector, CollapsibleSection },
   created() {
-    this.$store.dispatch('getParts');
+    this.$store.dispatch('robots/getParts');
   },
   beforeRouteLeave(to, from, next) {
     if (this.addedToCart) {
@@ -101,7 +101,7 @@ export default {
       };
     },
     availableParts() {
-      return this.$store.state.parts;
+      return this.$store.state.robots.parts;
     },
   },
   methods: {
@@ -110,7 +110,9 @@ export default {
       const cost = robot.head.cost + robot.leftArm.cost
         + robot.torso.cost + robot.rightArm.cost + robot.base.cost;
       this.cart.push({ ...robot, cost });
-      this.$store.dispatch('addRobotToCart', { robot, cost });
+      // commit mutation and dispatch action
+      this.$store.dispatch('robots/addRobotToCart', { robot, cost })
+        .then(() => this.$router.push('/cart'));
       this.addedToCart = true;
     },
   },

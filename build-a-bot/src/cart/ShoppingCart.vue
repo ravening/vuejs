@@ -56,11 +56,10 @@ export default {
   name: 'Cart',
   computed: {
     cart() {
-      console.log(this.$store.state.cart);
-      return this.$store.state.cart;
+      return this.$store.state.robots.cart;
     },
     cartSaleItems() {
-      return this.$store.getters.cartSaleItems;
+      return this.$store.getters['robots/cartSaleItems'];
     },
   },
 };
